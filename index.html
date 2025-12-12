@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mine - Tienda de juegos</title>
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="shortcut icon" href="media/mineboom.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+
+<body class="bg-mb-fondo decoration-5">
+    <header class="sticky top-0 z-50 bg-mb-fondo/95 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <img src="media/mineboom.png" alt="GameVault" class="w-10 h-auto">
+                    <h3 class="font-bold text-xl text-white tracking-wide">MineBoom</h3>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-1 bg-mb-fondo-3/50 px-2 py-1 rounded-full border border-white/5">
+                    <a href="#ya_estas_aqui" class="nav-active">
+                        <i class="bi bi-house-fill"></i> Inicio
+                    </a>
+                    <a href="views/tienda.html" class="nav-link">
+                        <i class="bi bi-google-play"></i> Tienda
+                    </a>
+
+                    
+                    <!-- Dropdown Foro/Comunidad -->
+                    <div class="relative group">
+                        <button id="foro-dropdown-btn" class="px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-full transition-all flex items-center gap-2 focus:outline-none">
+                            <i class="bi bi-chat-square-text-fill"></i> Foro <i class="bi bi-chevron-down text-xs transition-transform duration-300" id="foro-arrow"></i>
+                        </button>
+                        <!-- Dropdown Menu -->
+                        <div id="foro-dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-48 bg-mb-fondo-3 border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50 animate-fade-in-down">
+                            <a href="views/foro.html" class="block px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors border-b border-white/5">
+                                <i class="bi bi-people-fill mr-2 text-white"></i> Foros
+                            </a>
+                            <a href="views/noticias.html" class="block px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors border-b border-white/5">
+                                <i class="bi bi-newspaper mr-2 text-white"></i> Noticias
+                            </a>
+                            <a href="views/media.html" class="block px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors">
+                                <i class="bi bi-collection-play-fill mr-2 text-white"></i> Media (Demo Modal)
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="views/soporte.html" class="px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-full transition-all flex items-center gap-2">
+                        <i class="bi bi-ticket-perforated-fill"></i> Soporte
+                    </a>
+                </nav>
+
+                <!-- Desktop Auth -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="views/auth/login.html" class="text-white hover:text-mb-normal font-medium transition-colors">
+                        Login
+                    </a>
+                    <a href="views/auth/register.html" class="px-5 py-2 bg-mb-fondo-4 hover:bg-mb-normal hover:text-black text-white rounded-lg font-bold transition-all border border-white/10">
+                        Register
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white text-3xl focus:outline-none">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-mb-fondo-2 border-t border-white/10 absolute w-full left-0 top-full shadow-2xl">
+            <div class="container mx-auto px-4 py-6 flex flex-col gap-4">
+                <a href="#ya_estas_aqui" class="flex items-center gap-3 bg-mb-normal/10 text-mb-normal p-3 rounded-lg border border-mb-normal/20">
+                    <i class="bi bi-house-fill text-mb-normal"></i> Inicio
+                </a>
+                <a href="views/tienda.html" class="flex items-center gap-3 text-gray-300 p-3 rounded-lg hover:bg-white/5 hover:text-white">
+                    <i class="bi bi-google-play"></i> Tienda
+                </a>
+                
+                <!-- Sección Foro Mobile -->
+                <div class="bg-white/5 rounded-lg p-3">
+                    <p class="text-xs text-gray-500 uppercase tracking-wider font-bold mb-2 pl-1">Comunidad</p>
+                    <a href="views/foro.html" class="flex items-center gap-3 text-gray-300 p-2 rounded-lg hover:bg-white/5 hover:text-white">
+                        <i class="bi bi-people-fill text-white"></i> Foros
+                    </a>
+                    <a href="views/noticias.html" class="flex items-center gap-3 text-gray-300 p-2 rounded-lg hover:bg-white/5 hover:text-white">
+                        <i class="bi bi-newspaper text-white"></i> Noticias
+                    </a>
+                    <a href="views/media.html" class="flex items-center gap-3 text-gray-300 p-2 rounded-lg hover:bg-white/5 hover:text-white">
+                        <i class="bi bi-collection-play-fill text-white"></i> Media
+                    </a>
+                </div>
+
+                <a href="views/soporte.html" class="flex items-center gap-3 text-gray-300 p-3 rounded-lg hover:bg-white/5 hover:text-white">
+                    <i class="bi bi-ticket-perforated-fill"></i> Soporte
+                </a>
+                <hr class="border-white/10 my-2">
+                <div class="flex flex-col gap-3">
+                    <a href="views/auth/login.html" class="text-center py-3 text-white font-medium hover:bg-white/5 rounded-lg">
+                        Iniciar Sesión
+                    </a>
+                    <a href="views/auth/register.html" class="text-center py-3 bg-mb-normal text-black font-bold rounded-lg hover:bg-orange-500">
+                        Registrarse
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Hero -->
+        <section class="bg-gradient-to-t from-mb-fondo-4/30 to-mb-fondo py-5 px-4 pb-50 text-center relative">
+            <!-- Patrón de cuadrados estático -->
+            <div class="square-pattern"></div>
+
+            <div class="max-w-4xl mx-auto relative z-10">
+                <!-- Tu contenido existente -->
+                <img src="media/mineboom.png" alt="GameVault" class="w-80 h-auto mx-auto mb-6 logo-zoom">
+                <h2 class="uppercase text-4xl md:text-6xl leading-tight mb-4 text-white font-bold">
+                    Tu futuro <span class="text-yellow-400">Gamer</span> es lo mejor de los mejor
+                    está <span class="text-yellow-400">aquí</span>
+                </h2>
+                <p class="text-lg md:text-xl text-white">
+                    Encontrar el juego perfecto para ti es fácil con nuestra amplia selección de títulos.<br>
+                    Explora nuestra tienda de juegos y descubre los mejores títulos para tu consola favorita.
+                </p>
+                <div class="text-center mt-8">
+                    <i class="bi bi-chevron-down arrow-bounce-down"></i>
+                </div>
+            </div>
+        </section>
+        <section class="bg-yellow-500 py-20 w-full">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-2/3 mb-8 md:mb-0">
+                    <h2 class="text-3xl md:text-5xl font-bold text-black mb-4 leading-tight">
+                        El dia de los juegos a <span class="text-white drop-shadow-md">precios increibles</span>
+                    </h2>
+                    <p class="text-xl text-black/80 font-medium mb-0">
+                        Aproximadamente <span class="text-black font-bold text-2xl">50% de descuento</span> en todos los juegos
+                    </p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <a href="#" class="px-8 py-4 bg-black hover:bg-gray-800 text-white font-bold text-lg rounded-full transition-all transform hover:scale-105 shadow-lg text-center border-2 border-black">
+                        <i class="bi bi-tag-fill mr-2"></i> Cupón de 50%
+                    </a>
+                    <div class="text-black font-medium text-sm text-center">
+                        <i class="bi bi-clock-history mr-1"></i> Hasta el 31 de diciembre
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contenidos -->
+        <section id="ya_estas_aqui" class="py-20 container mx-auto px-4 space-y-32">
+            
+            <!-- Feature 1: Catálogo Premium (Image Left, Text Right) -->
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <!-- Visual / Image -->
+                <div class="w-full lg:w-1/2 relative group">
+                    <div class="absolute inset-0 bg-mb-normal/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <img src="https://i.pinimg.com/736x/74/b8/7e/74b87e742cb987ff1ade07e4c39f5a95.jpg" alt="Catálogo Premium" class="relative w-full rounded-2xl shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-500 border border-white/10">
+                </div>
+                
+                <!-- Content -->
+                <div class="w-full lg:w-1/2 text-left ">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                        Accede a los <span class="text-mb-normal">Mejores Títulos</span> del Mercado
+                    </h2>
+                    <p class="text-xl text-gray-400 mb-8 leading-relaxed">
+                        Explora una biblioteca inmensa con los últimos lanzamientos AAA y las joyas indie más codiciadas. Tu próxima gran aventura te espera a un clic de distancia.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="bi bi-check-circle-fill text-green-500"></i> Estrenos Mundiales Garantizados
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="bi bi-check-circle-fill text-green-500"></i> Keys Originales y Verificadas
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="bi bi-check-circle-fill text-green-500"></i> Entrega Digital Inmediata
+                        </li>
+                    </ul>
+                    <a href="views/tienda.html" class="inline-block px-8 py-3 bg-white/5 hover:bg-white/10 text-white font-bold rounded-lg transition-colors border border-white/10">
+                        Explorar Catálogo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Feature 2: Ofertas (Text Left, Image Right) -->
+            <div class="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
+                 <!-- Content -->
+                 <div class="w-full lg:w-1/2 text-left">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                        Ofertas que <span class="text-mb-medium">No Puedes Dejar Pasar</span>
+                    </h2>
+                    <p class="text-xl text-gray-400 mb-8 leading-relaxed">
+                        Aprovecha descuentos exclusivos de hasta el 80% en tus franquicias favoritas. Actualizamos nuestras promociones cada semana para que siempre tengas algo nuevo que jugar.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="views/tienda.html" class="px-8 py-3 bg-mb-medium hover:bg-mb-dark text-white font-bold rounded-lg transition-colors text-center shadow-lg shadow-mb-medium/20">
+                            Ver Ofertas
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Visual / Image -->
+                <div class="w-full lg:w-1/2 relative group">
+                    <div class="absolute inset-0 bg-mb-medium/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                     <!-- Improved visual with the actual image -->
+                    <img src="https://i.pinimg.com/1200x/ec/58/8b/ec588b3cd35ede97e01a2b053b8a6ad6.jpg" alt="Ofertas y Juegos" class="relative w-full rounded-2xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 border border-white/10">
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Expertos -->
+        <section class="bg-mb-fondo-2 py-20">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                        ¿Tienes alguna duda?<br>
+                        <span class="text-mb-normal">Contáctanos</span> ahora
+                    </h2>
+                    <p class="text-gray-400 mb-8 max-w-2xl mx-auto">Estamos aquí para ayudarte con cualquier pregunta sobre tu cuenta, juegos o soporte técnico.</p>
+                    
+                    <form class="space-y-4 text-left bg-mb-fondo-3 p-8 rounded-2xl border border-white/5 shadow-xl">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-white mb-2 font-medium">Nombre Completo</label>
+                                <input type="text" id="name" class="w-full bg-mb-fondo border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-mb-normal transition-colors" placeholder="Tu nombre">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-white mb-2 font-medium">Correo Electrónico</label>
+                                <input type="email" id="email" class="w-full bg-mb-fondo border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-mb-normal transition-colors" placeholder="tu@email.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-white mb-2 font-medium">Mensaje</label>
+                            <textarea id="message" rows="4" class="w-full bg-mb-fondo border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-mb-normal transition-colors" placeholder="¿En qué podemos ayudarte?"></textarea>
+                        </div>
+                        <a href="#" onclick="openModal('success'); return false;" class="block text-center w-full bg-mb-normal hover:bg-orange-500 text-black font-bold py-3 rounded-lg transition-all transform hover:scale-[1.02]">
+                            Enviar Mensaje
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-mb-fondo-5 border-t border-white/10 pt-16 pb-8">
+        <div class="w-full px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="media/mineboom.png" alt="GameVault" class="w-12 h-auto opacity-80">
+                        <h3 class="text-2xl font-bold text-white tracking-wider">MineBoom</h3>
+                    </div>
+                    <p class="text-gray-500 leading-relaxed max-w-sm">
+                        Tu tienda de juegos digital de confianza. Los mejores títulos, ofertas exclusivas y una comunidad apasionada te esperan.
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
+                        <i class="bi bi-link-45deg text-mb-normal"></i> Enlaces Rápidos
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="#ya_estas_aqui" class="text-gray-400 hover:text-mb-normal transition-colors">Inicio</a></li>
+                        <li><a href="views/tienda.html" class="text-gray-400 hover:text-mb-normal transition-colors">Tienda Oficial</a></li>
+
+                        <li><a href="views/soporte.html" class="text-gray-400 hover:text-mb-normal transition-colors">Centro de Soporte</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
+                        <i class="bi bi-chat-heart-fill text-mb-medium"></i> Contacto
+                    </h4>
+                    <div class="space-y-4">
+                        <p class="flex items-center gap-3 text-gray-400">
+                            <i class="bi bi-envelope text-mb-normal"></i> support@mineboom.com
+                        </p>
+                        <p class="flex items-center gap-3 text-gray-400">
+                            <i class="bi bi-telephone text-mb-normal"></i> +1 (800) 123-4567
+                        </p>
+                        <div class="flex gap-4 mt-6">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-mb-normal hover:text-black transition-all">
+                                <i class="bi bi-twitter-x"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-mb-medium hover:text-black transition-all">
+                                <i class="bi bi-discord"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-blue-600 hover:text-white transition-all">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-8 text-center text-gray-600 text-sm">
+                <p>&copy; 2025 MineBoom. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/particles.js"></script>
+    <!-- Global Modal System -->
+    <script src="modals/modals.js"></script>
+    <script src="js/mobil.js"></script>
+</body>
+
+</html>
