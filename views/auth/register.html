@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MineBoom</title>
+    <link rel="stylesheet" href="../../src/output.css">
+    <link rel="shortcut icon" href="../../media/mineboom.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+
+<body class="bg-mb-fondo decoration-5">
+    <header class="sticky top-0 z-50 bg-mb-fondo/95 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <img src="../../media/mineboom.png" alt="MineBoom" class="w-10 h-auto">
+                    <h3 class="font-bold text-xl text-white tracking-wide">MineBoom</h3>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-1 bg-mb-fondo-3/50 px-2 py-1 rounded-full border border-white/5">
+                    <a href="../../index.html" class="px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-full transition-all flex items-center gap-2">
+                        <i class="bi bi-house-fill"></i> Inicio
+                    </a>
+                    <a href="../tienda.html" class="px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-full transition-all flex items-center gap-2">
+                        <i class="bi bi-google-play"></i> Tienda
+                    </a>
+
+                    <a href="../noticias.html" class="px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-full transition-all flex items-center gap-2">
+                        <i class="bi bi-megaphone-fill"></i> Noticias
+                    </a>
+                    <a href="../foro.html" class="px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-full transition-all flex items-center gap-2">
+                        <i class="bi bi-passport-fill"></i> Foro
+                    </a>
+                    <a href="../soporte.html" class="px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-full transition-all flex items-center gap-2">
+                        <i class="bi bi-ticket-perforated-fill"></i> Soporte
+                    </a>
+                </nav>
+
+                <!-- Desktop Auth -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="login.html" class="text-mb-normal font-medium transition-colors">
+                        Login
+                    </a>
+                    <a href="register.html" class="px-5 py-2 bg-mb-fondo-4 hover:bg-mb-normal hover:text-black text-white rounded-lg font-bold transition-all border border-white/10">
+                        Register
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white text-3xl focus:outline-none">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-mb-fondo-2 border-t border-white/10 absolute w-full left-0 top-full shadow-2xl">
+            <div class="container mx-auto px-4 py-6 flex flex-col gap-4">
+                <a href="../../index.html" class="flex items-center gap-3 text-gray-300 p-3 rounded-lg hover:bg-white/5 hover:text-white">
+                    <i class="bi bi-house-fill"></i> Inicio
+                </a>
+                <a href="../tienda.html" class="flex items-center gap-3 text-gray-300 p-3 rounded-lg hover:bg-white/5 hover:text-white">
+                    <i class="bi bi-google-play"></i> Tienda
+                </a>
+
+                <a href="../noticias.html" class="flex items-center gap-3 text-gray-300 p-3 rounded-lg hover:bg-white/5 hover:text-white">
+                    <i class="bi bi-megaphone-fill"></i> Noticias
+                </a>
+                <a href="../foro.html" class="flex items-center gap-3 text-gray-300 p-3 rounded-lg hover:bg-white/5 hover:text-white">
+                    <i class="bi bi-passport-fill"></i> Foro
+                </a>
+                <a href="../soporte.html" class="flex items-center gap-3 text-gray-300 p-3 rounded-lg hover:bg-white/5 hover:text-white">
+                    <i class="bi bi-ticket-perforated-fill"></i> Soporte
+                </a>
+                <hr class="border-white/10 my-2">
+                <div class="flex flex-col gap-3">
+                    <a href="login.html" class="text-center py-3 text-white font-medium bg-white/5 rounded-lg">
+                        Iniciar Sesión
+                    </a>
+                    <a href="register.html" class="text-center py-3 bg-mb-normal text-black font-bold rounded-lg hover:bg-orange-500">
+                        Registrarse
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen flex items-center justify-center py-20 px-4">
+        <div class="max-w-md w-full">
+            <!-- Logo y Título -->
+            <div class="text-center mb-8">
+                <img src="../../media/mineboom.png" alt="MineBoom" class="w-20 h-auto mx-auto mb-4 opacity-90 logo-zoom">
+                <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">Iniciar Sesión</h1>
+                <p class="text-gray-400">Bienvenido de vuelta a MineBoom</p>
+            </div>
+            
+            <!-- Formulario -->
+            <form class="bg-mb-fondo-3 p-8 rounded-2xl border border-white/5 shadow-xl">
+                <!-- Email -->
+                <div class="mb-6">
+                    <label for="email" class="block text-white font-medium mb-2">Correo Electrónico</label>
+                    <div class="relative">
+                        <i class="bi bi-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <input type="email" id="email" placeholder="tu@email.com" required
+                               class="w-full bg-mb-fondo border border-white/10 rounded-lg pl-12 pr-4 py-3 text-white focus:outline-none focus:border-mb-normal transition-colors">
+                    </div>
+                </div>
+                
+                <!-- Password -->
+                <div class="mb-6">
+                    <label for="password" class="block text-white font-medium mb-2">Contraseña</label>
+                    <div class="relative">
+                        <i class="bi bi-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <input type="password" id="password" placeholder="••••••••" required
+                               class="w-full bg-mb-fondo border border-white/10 rounded-lg pl-12 pr-4 py-3 text-white focus:outline-none focus:border-mb-normal transition-colors">
+                    </div>
+                </div>
+                
+                <!-- Recordarme y Olvidaste contraseña -->
+                <div class="flex items-center justify-between mb-6">
+                    <label class="flex items-center text-gray-400 text-sm cursor-pointer">
+                        <input type="checkbox" class="mr-2 w-4 h-4 rounded border-gray-600 bg-mb-fondo focus:ring-mb-normal">
+                        Recordarme
+                    </label>
+                    <a href="#" class="text-mb-normal text-sm hover:text-orange-500 transition-colors">
+                        ¿Olvidaste tu contraseña?
+                    </a>
+                </div>
+                
+                <!-- Botón -->
+                <button type="submit" class="w-full bg-mb-normal hover:bg-orange-500 text-black font-bold py-3 rounded-lg transition-all transform hover:scale-[1.02] mb-6">
+                    Iniciar Sesión
+                </button>
+                
+                <!-- Registro -->
+                <div class="text-center pt-6 border-t border-white/10">
+                    <p class="text-gray-400 text-sm">
+                        ¿No tienes cuenta? 
+                        <a href="register.html" class="text-mb-normal font-bold hover:text-orange-500 transition-colors">Regístrate aquí</a>
+                    </p>
+                </div>
+            </form>
+            
+            <!-- Volver -->
+            <div class="text-center mt-6">
+                <a href="../../index.html" class="text-gray-400 text-sm hover:text-mb-normal transition-colors inline-flex items-center gap-2">
+                    <i class="bi bi-arrow-left"></i> Volver al inicio
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-mb-fondo-5 border-t border-white/10 pt-16 pb-8">
+        <div class="w-full px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="../../media/mineboom.png" alt="MineBoom" class="w-12 h-auto opacity-80">
+                        <h3 class="text-2xl font-bold text-white tracking-wider">MineBoom</h3>
+                    </div>
+                    <p class="text-gray-500 leading-relaxed max-w-sm">
+                        Tu tienda de juegos digital de confianza. Los mejores títulos, ofertas exclusivas y una comunidad apasionada te esperan.
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
+                        <i class="bi bi-link-45deg text-mb-normal"></i> Enlaces Rápidos
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="../../index.html" class="text-gray-400 hover:text-mb-normal transition-colors">Inicio</a></li>
+                        <li><a href="../tienda.html" class="text-gray-400 hover:text-mb-normal transition-colors">Tienda Oficial</a></li>
+
+                        <li><a href="../soporte.html" class="text-gray-400 hover:text-mb-normal transition-colors">Centro de Soporte</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
+                        <i class="bi bi-chat-heart-fill text-mb-medium"></i> Contacto
+                    </h4>
+                    <div class="space-y-4">
+                        <p class="flex items-center gap-3 text-gray-400">
+                            <i class="bi bi-envelope text-mb-normal"></i> support@mineboom.com
+                        </p>
+                        <p class="flex items-center gap-3 text-gray-400">
+                            <i class="bi bi-telephone text-mb-normal"></i> +1 (800) 123-4567
+                        </p>
+                        <div class="flex gap-4 mt-6">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-mb-normal hover:text-black transition-all">
+                                <i class="bi bi-twitter-x"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-mb-medium hover:text-black transition-all">
+                                <i class="bi bi-discord"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-blue-600 hover:text-white transition-all">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-8 text-center text-gray-600 text-sm">
+                <p>&copy; 2025 MineBoom. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

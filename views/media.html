@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media - MineBoom</title>
+    <link rel="stylesheet" href="../src/output.css">
+    <link rel="shortcut icon" href="../media/mineboom.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+
+<body class="bg-mb-fondo decoration-5 font-sans">
+    <header class="sticky top-0 z-50 bg-mb-fondo/95 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <img src="../media/mineboom.png" alt="GameVault" class="w-10 h-auto">
+                    <h3 class="font-bold text-xl text-white tracking-wide">MineBoom</h3>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-1 bg-mb-fondo-3/50 px-2 py-1 rounded-full border border-white/5">
+                    <a href="../index.html" class="nav-link">
+                        <i class="bi bi-house-fill"></i> Inicio
+                    </a>
+                    <a href="tienda.html" class="nav-link">
+                        <i class="bi bi-google-play"></i> Tienda
+                    </a>
+
+                    
+                    <!-- Dropdown Foro/Comunidad -->
+                    <div class="relative group">
+                        <button id="foro-dropdown-btn" class="nav-active px-4 py-2 text-black hover:text-white hover:bg-white/5 rounded-full transition-all flex items-center gap-2 focus:outline-none">
+                            <i class="bi bi-chat-square-text-fill"></i> Foro <i class="bi bi-chevron-down text-xs transition-transform duration-300" id="foro-arrow"></i>
+                        </button>
+                        <!-- Dropdown Menu -->
+                        <div id="foro-dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-48 bg-mb-fondo-3 border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50 animate-fade-in-down">
+                            <a href="foro.html" class="block px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors border-b border-white/5">
+                                <i class="bi bi-people-fill mr-2 text-white"></i> Foros
+                            </a>
+                            <a href="noticias.html" class="block px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors border-b border-white/5">
+                                <i class="bi bi-newspaper mr-2 text-white"></i> Noticias
+                            </a>
+                            <a href="media.html" class="block px-4 py-3 text-mb-normal bg-white/5 font-bold transition-colors">
+                                <i class="bi bi-collection-play-fill mr-2 text-mb-normal"></i> Media
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="soporte.html" class="px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-full transition-all flex items-center gap-2">
+                        <i class="bi bi-ticket-perforated-fill"></i> Soporte
+                    </a>
+                </nav>
+
+                <!-- Desktop Auth -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="auth/login.html" class="text-white hover:text-mb-normal font-medium transition-colors">
+                        Login
+                    </a>
+                    <a href="auth/register.html" class="px-5 py-2 bg-mb-fondo-4 hover:bg-mb-normal hover:text-black text-white rounded-lg font-bold transition-all border border-white/10">
+                        Register
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white text-3xl focus:outline-none">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-mb-fondo-2 border-t border-white/10 absolute w-full left-0 top-full shadow-2xl">
+            <div class="container mx-auto px-4 py-6 flex flex-col gap-4">
+                    <a href="../index.html" class="flex items-center gap-3 text-gray-300 p-3 rounded-lg hover:bg-white/5 hover:text-white">
+                        <i class="bi bi-house-fill"></i> Inicio
+                    </a>
+                <a href="tienda.html" class="flex items-center gap-3 text-gray-300 p-3 rounded-lg hover:bg-white/5 hover:text-white">
+                    <i class="bi bi-google-play"></i> Tienda
+                </a>
+
+                
+                <!-- Sección Foro Mobile -->
+                <div class="bg-white/5 rounded-lg p-3">
+                    <p class="text-xs text-gray-500 uppercase tracking-wider font-bold mb-2 pl-1">Comunidad</p>
+                    <a href="foro.html" class="flex items-center gap-3 text-gray-300 p-2 rounded-lg hover:bg-white/5 hover:text-white">
+                        <i class="bi bi-people-fill text-white"></i> Foros
+                    </a>
+                    <a href="noticias.html" class="flex items-center gap-3 text-gray-300 p-2 rounded-lg hover:bg-white/5 hover:text-white">
+                        <i class="bi bi-newspaper text-white"></i> Noticias
+                    </a>
+                    <a href="media.html" class="flex items-center gap-3 text-mb-normal bg-white/5 rounded-lg font-bold">
+                        <i class="bi bi-collection-play-fill text-mb-normal"></i> Media
+                    </a>
+                </div>
+
+                <a href="soporte.html" class="flex items-center gap-3 text-gray-300 p-3 rounded-lg hover:bg-white/5 hover:text-white">
+                    <i class="bi bi-ticket-perforated-fill"></i> Soporte
+                </a>
+                <hr class="border-white/10 my-2">
+                <div class="flex flex-col gap-3">
+                    <a href="auth/login.html" class="text-center py-3 text-white font-medium hover:bg-white/5 rounded-lg">
+                        Iniciar Sesión
+                    </a>
+                    <a href="auth/register.html" class="text-center py-3 bg-mb-normal text-black font-bold rounded-lg hover:bg-orange-500">
+                        Registrarse
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full py-12">
+
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="mb-12 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Estrenos más <span class="text-mb-normal">Esperados 2025</span>
+                </h1>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Descubre los trailers oficiales de los títulos que redefinirán el gaming este año.
+                </p>
+            </div>
+
+            <!-- Featured Trailer (Hero) -->
+            <div class="mb-16 bg-black rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+                <div class="relative w-full" style="padding-bottom: 56.25%;">
+                    <!-- Embed de YouTube (GTA VI Trailer 1) -->
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/QdBZY2fkU-0?autoplay=0" title="GTA VI Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="p-8 md:p-12 bg-mb-fondo-2 border-t border-white/5">
+                    <span class="bg-mb-normal text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">Más Esperado</span>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Grand Theft Auto VI</h2>
+                    <p class="text-gray-300 text-lg max-w-3xl mb-6 mx-auto">El regreso a Vice City marca la evolución más grande en la historia de la saga. Un mundo abierto inmersivo y una narrativa criminal sin precedentes.</p>
+                </div>
+            </div>
+
+            <!-- Trailers Grid -->
+            <h3 class="text-2xl font-bold text-white mb-6 pl-2 border-l-4 border-mb-normal">Próximos Lanzamientos & Favoritos</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+                
+                <!-- Card 1: Hytale -->
+                <div class="bg-mb-fondo-2 rounded-xl overflow-hidden group border border-white/5 hover:border-mb-normal/50 transition-all duration-300 hover:-translate-y-1">
+                    <div class="relative w-full" style="padding-bottom: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/o77MzDQT1cg" title="Hytale Trailer" frameborder="0" allow="align-center; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-white font-bold text-lg leading-tight group-hover:text-mb-normal transition-colors">Hytale</h4>
+                            <span class="text-xs font-bold text-gray-500 border border-white/10 px-2 py-1 rounded">TBA</span>
+                        </div>
+                        <p class="text-gray-400 text-sm line-clamp-2">Un RPG sandbox con profundidad de aventura y creatividad sin límites. El sucesor espiritual más esperado.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2: A Minecraft Movie -->
+                <div class="bg-mb-fondo-2 rounded-xl overflow-hidden group border border-white/5 hover:border-mb-normal/50 transition-all duration-300 hover:-translate-y-1">
+                    <div class="relative w-full" style="padding-bottom: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://youtu.be/79RwQe6EN_4" title="Minecraft Movie Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-white font-bold text-lg leading-tight group-hover:text-mb-normal transition-colors">A Minecraft Movie</h4>
+                            <span class="text-xs font-bold text-gray-500 border border-white/10 px-2 py-1 rounded">2025</span>
+                        </div>
+                        <p class="text-gray-400 text-sm line-clamp-2">La película oficial de Minecraft llega a los cines. Una nueva forma de ver el mundo de bloques.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Monster Hunter Wilds -->
+                <div class="bg-mb-fondo-2 rounded-xl overflow-hidden group border border-white/5 hover:border-mb-normal/50 transition-all duration-300 hover:-translate-y-1">
+                    <div class="relative w-full" style="padding-bottom: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/watch?v=a_wNFT4j6qI" title="Monster Hunter Wilds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-white font-bold text-lg leading-tight group-hover:text-mb-normal transition-colors">Monster Hunter Wilds</h4>
+                            <span class="text-xs font-bold text-gray-500 border border-white/10 px-2 py-1 rounded">2025</span>
+                        </div>
+                        <p class="text-gray-400 text-sm line-clamp-2">La próxima generación de caza comienza con entornos dinámicos y criaturas colosales.</p>
+                    </div>
+                </div>
+
+                 <!-- Card 4: Fable -->
+                 <div class="bg-mb-fondo-2 rounded-xl overflow-hidden group border border-white/5 hover:border-mb-normal/50 transition-all duration-300 hover:-translate-y-1">
+                    <div class="relative w-full" style="padding-bottom: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/watch?v=w6TJTHdgmts" title="Fable Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-white font-bold text-lg leading-tight group-hover:text-mb-normal transition-colors">Fable</h4>
+                            <span class="text-xs font-bold text-gray-500 border border-white/10 px-2 py-1 rounded">2025</span>
+                        </div>
+                        <p class="text-gray-400 text-sm line-clamp-2">¿Qué significa ser un héroe? Regresa a Albion en este reinicio de la clásica franquicia RPG.</p>
+                    </div>
+                </div>
+
+                <!-- Card 5: DOOM: The Dark Ages -->
+                <div class="bg-mb-fondo-2 rounded-xl overflow-hidden group border border-white/5 hover:border-mb-normal/50 transition-all duration-300 hover:-translate-y-1">
+                    <div class="relative w-full" style="padding-bottom: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/watch?v=P4wvc_zDHpA" title="Doom Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-white font-bold text-lg leading-tight group-hover:text-mb-normal transition-colors">DOOM: The Dark Ages</h4>
+                            <span class="text-xs font-bold text-gray-500 border border-white/10 px-2 py-1 rounded">2025</span>
+                        </div>
+                        <p class="text-gray-400 text-sm line-clamp-2">Una precuela medieval del Doom Slayer. Destruye demonios con armas de destrucción masiva.</p>
+                    </div>
+                </div>
+
+                <!-- Card 6: Borderlands 4 -->
+                <div class="bg-mb-fondo-2 rounded-xl overflow-hidden group border border-white/5 hover:border-mb-normal/50 transition-all duration-300 hover:-translate-y-1">
+                    <div class="relative w-full" style="padding-bottom: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/watch?v=NtSRtcXcCnk" title="Borderlands 4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-white font-bold text-lg leading-tight group-hover:text-mb-normal transition-colors">Borderlands 4</h4>
+                            <span class="text-xs font-bold text-gray-500 border border-white/10 px-2 py-1 rounded">TBA</span>
+                        </div>
+                        <p class="text-gray-400 text-sm line-clamp-2">Vuelve el rey de los looter-shooters. Más armas, más caos y nuevos buscacámaras.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    <footer class="bg-mb-fondo-5 border-t border-white/10 pt-16 pb-8">
+        <div class="w-full">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="../media/mineboom.png" alt="GameVault" class="w-12 h-auto opacity-80">
+                        <h3 class="text-2xl font-bold text-white tracking-wider">MineBoom</h3>
+                    </div>
+                    <p class="text-gray-500 leading-relaxed max-w-sm">
+                        Tu tienda de juegos digital de confianza. Los mejores títulos, ofertas exclusivas y una comunidad apasionada te esperan.
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
+                        <i class="bi bi-link-45deg text-mb-normal"></i> Enlaces Rápidos
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-mb-normal transition-colors">Inicio</a></li>
+                        <li><a href="tienda.html" class="text-gray-400 hover:text-mb-normal transition-colors">Tienda Oficial</a></li>
+
+                        <li><a href="soporte.html" class="text-gray-400 hover:text-mb-normal transition-colors">Centro de Soporte</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
+                        <i class="bi bi-chat-heart-fill text-mb-medium"></i> Contacto
+                    </h4>
+                    <div class="space-y-4">
+                        <p class="flex items-center gap-3 text-gray-400">
+                            <i class="bi bi-envelope text-mb-normal"></i> support@mineboom.com
+                        </p>
+                        <p class="flex items-center gap-3 text-gray-400">
+                            <i class="bi bi-telephone text-mb-normal"></i> +1 (800) 123-4567
+                        </p>
+                        <div class="flex gap-4 mt-6">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-mb-normal hover:text-black transition-all">
+                                <i class="bi bi-twitter-x"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-mb-medium hover:text-black transition-all">
+                                <i class="bi bi-discord"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-blue-600 hover:text-white transition-all">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-8 text-center text-gray-600 text-sm">
+                <p>&copy; 2025 MineBoom. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/particles.js"></script>
+    <!-- Global Modal System -->
+    <script src="../modals/modals.js"></script>
+    <script src="../js/mobil.js"></script>
+</body>
+
+</html>
